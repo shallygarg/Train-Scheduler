@@ -12,21 +12,6 @@
 // Functionality to remove train info in the table and update it in the DB
 // Login with only Google or Github(Firebase authentication)
 
-
-//alert(moment("2017-07-03T15:00:00.027Z").utc().format('hh:mm:ss'));
-//alert(moment().format('hh:mm:ss'));
-// var dateA = moment().add('hours', 7);
-// alert(dateA.fromNow());
-
-var dateB = moment('2014-12-12');
-var dateC = moment('2014-12-11');
-
-//alert(dateB.from(dateC));
-
-var now = moment('2018-07-03T08:00:00.27Z').utc().format('hh:mm:ss');
-var tTime = moment('2018-07-03T15:00:00.27Z').utc().format('hh:mm:ss');
-
-// alert(tTime.from(now));
 //1. Initiate Firebase
 var config = {
     apiKey: "AIzaSyBFQbFKWl6UaLqW7ZjyFtGEq9TxzeQyX8g",
@@ -117,29 +102,15 @@ database.ref().orderByChild("dateAdded").limitToLast(25).on("child_added", funct
 
     //6. Display data in the table
     function displayInfo(){
-        $("tbody").append("<tr><td>" + firstTrainTime + "</td><td>" + trainName + "</td><td>" + trainDestination + "</td><td>" + trainFrequency + "</td><td>" + nextTrainTime + "</td><td>" + minAway + "</td><td><button class='remove'>Remove</tr>");
+       $("tbody").append("<tr><td>" + trainName + "</td><td>" + trainDestination + "</td><td>" + trainFrequency + "</td><td>" + nextTrainTime + "</td><td>" + minAway + "</td></tr>");   
     }
     displayInfo();
-
-    // var refresh = setInterval(function(){
-    //     console.log("Time" + moment().format("HH:mm"));
-    //     document.location.reload();
-    // },60000); 
 
    // Handle the errors
     }, function(errorObject) {
         console.log("Errors handled: " + errorObject.code);
 });
 
-//On Child deleted
-
-//Remove train info
-// $(document).on("click", ".remove", function(){
-//     console.log($(this).parent());
-
-    //parent element
-
-// })
 
 
 
